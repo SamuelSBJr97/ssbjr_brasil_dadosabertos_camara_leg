@@ -1,0 +1,42 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.18
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
+import 'package:api_camara/api.dart';
+import 'package:test/test.dart';
+
+// tests for LocalCamara
+void main() {
+  // final instance = LocalCamara();
+
+  group('test LocalCamara', () {
+    // String andar
+    test('to test the property `andar`', () async {
+      // TODO
+    });
+
+    // String nome
+    test('to test the property `nome`', () async {
+      // TODO
+    });
+
+    // String predio
+    test('to test the property `predio`', () async {
+      // TODO
+    });
+
+    // String sala
+    test('to test the property `sala`', () async {
+      // TODO
+    });
+
+
+  });
+
+}

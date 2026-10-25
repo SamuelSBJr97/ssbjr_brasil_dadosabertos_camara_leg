@@ -1,0 +1,15 @@
+{
+  "name": "ssbjr_brasil_dadosabertos_camara_leg",
+  "version": "1.0.0",
+  "description": "A new Flutter project.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "gerar-client-dart": "npx @openapitools/openapi-generator-cli generate -i https://dadosabertos.camara.leg.br/api/v2/api-docs -g dart -o ./packages/api_camara --skip-validate-spec --additional-properties=pubName=api_camara,pubVersion=1.0.0"
+  },
+  "keywords": [],
+  "type": "commonjs"
+}
