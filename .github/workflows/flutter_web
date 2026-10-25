@@ -1,0 +1,43 @@
+name: Deploy Flutter Web to GitHub Pages
+
+# Controla quando a Action vai rodar
+on:
+  push:
+    branches: [ "main" ] # Roda sempre que houver um push na branch main
+  workflow_dispatch: # Permite rodar manualmente na aba Actions
+
+# Permissões necessárias para o bot publicar a página
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Baixa o código do seu repositório
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # 2. Prepara o ambiente com o Flutter
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      # 3. Instala as dependências (vai ler o pubspec.yaml e a pasta packages/api_camara)
+      - name: Instalar dependências
+        run: flutter pub get
+
+      # 4. Compila o app para web
+      # ATENÇÃO: Substitua NOME_DO_SEU_REPOSITORIO pelo nome exato do seu repositório no GitHub.
+      # Exemplo: se a url for github.com/seunome/bot-camara, use --base-href "/bot-camara/"
+      - name: Build Web
+        run: flutter build web --release --base-href "/ssbjr_brasil_dadosabertos_camara_leg/"
+
+      # 5. Pega os arquivos estáticos gerados e publica no GitHub Pages
+      - name: Deploy para o GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
