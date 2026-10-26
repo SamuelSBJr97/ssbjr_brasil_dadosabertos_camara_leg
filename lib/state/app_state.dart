@@ -181,7 +181,7 @@ class AppState extends ChangeNotifier {
           _deputados = await _service.fetchDeputados(
             uf: _selectedUf,
             nome: _searchQuery,
-            itens: 40,
+            itens: 1000,
           );
           break;
 
@@ -189,7 +189,7 @@ class AppState extends ChangeNotifier {
           _eventos = await _service.fetchEventos(
             dataInicio: dataStr,
             dataFim: dataStr,
-            itens: 35,
+            itens: 1000,
           );
           if (_searchQuery.trim().isNotEmpty) {
             final q = _searchQuery.toLowerCase();
@@ -205,7 +205,7 @@ class AppState extends ChangeNotifier {
           _votacoes = await _service.fetchVotacoes(
             dataInicio: dataStr,
             dataFim: dataStr,
-            itens: 35,
+            itens: 1000,
           );
           if (_searchQuery.trim().isNotEmpty) {
             final q = _searchQuery.toLowerCase();
