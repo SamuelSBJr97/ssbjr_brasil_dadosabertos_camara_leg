@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import '../../models/filter_model.dart';
 import '../../state/app_state.dart';
+import '../parlamentar_avatar.dart';
 
 /// Exibição da lista principal de resultados (Deputados, Eventos ou Votações)
 class ResultsListView extends StatelessWidget {
@@ -108,18 +109,10 @@ class ResultsListView extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: Row(
                 children: [
-                  Hero(
-                    tag: 'dep_foto_${dep.id}',
-                    child: CircleAvatar(
-                      radius: 28,
-                      backgroundColor: Colors.grey.shade200,
-                      backgroundImage: dep.urlFoto != null && dep.urlFoto!.isNotEmpty
-                          ? NetworkImage(dep.urlFoto!)
-                          : null,
-                      child: dep.urlFoto == null || dep.urlFoto!.isEmpty
-                          ? const Icon(Icons.person, color: Colors.grey)
-                          : null,
-                    ),
+                  ParlamentarAvatar(
+                    urlFoto: dep.urlFoto,
+                    radius: 28,
+                    heroTag: 'dep_foto_${dep.id}',
                   ),
                   const SizedBox(width: 14),
                   Expanded(

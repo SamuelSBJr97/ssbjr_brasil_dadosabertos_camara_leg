@@ -2,6 +2,7 @@ import 'package:api_camara/api.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../state/app_state.dart';
+import '../parlamentar_avatar.dart';
 
 /// Visão em Cascata com o Voto de Cada Parlamentar em Determinada Votação
 class VotacaoVotosView extends StatefulWidget {
@@ -206,17 +207,9 @@ class _VotacaoVotosViewState extends State<VotacaoVotosView> {
                           horizontal: 12, vertical: 8),
                       child: Row(
                         children: [
-                          CircleAvatar(
+                          ParlamentarAvatar(
+                            urlFoto: dep?.urlFoto,
                             radius: 18,
-                            backgroundColor: Colors.grey.shade200,
-                            backgroundImage: dep?.urlFoto != null &&
-                                    dep!.urlFoto!.isNotEmpty
-                                ? NetworkImage(dep.urlFoto!)
-                                : null,
-                            child: dep?.urlFoto == null
-                                ? const Icon(Icons.person,
-                                    size: 18, color: Colors.grey)
-                                : null,
                           ),
                           const SizedBox(width: 12),
                           Expanded(

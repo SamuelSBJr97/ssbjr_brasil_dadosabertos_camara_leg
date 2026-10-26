@@ -2,6 +2,7 @@ import 'package:api_camara/api.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../state/app_state.dart';
+import '../parlamentar_avatar.dart';
 
 /// Visão de Detalhes de um Deputado
 class DeputadoDetailView extends StatefulWidget {
@@ -45,18 +46,10 @@ class _DeputadoDetailViewState extends State<DeputadoDetailView> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Hero(
-                    tag: 'dep_foto_${dep.id}',
-                    child: CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.grey.shade200,
-                      backgroundImage: dep.urlFoto != null && dep.urlFoto!.isNotEmpty
-                          ? NetworkImage(dep.urlFoto!)
-                          : null,
-                      child: dep.urlFoto == null || dep.urlFoto!.isEmpty
-                          ? const Icon(Icons.person, size: 40, color: Colors.grey)
-                          : null,
-                    ),
+                  ParlamentarAvatar(
+                    urlFoto: dep.urlFoto,
+                    radius: 40,
+                    heroTag: 'dep_foto_${dep.id}',
                   ),
                   const SizedBox(width: 16),
                   Expanded(
