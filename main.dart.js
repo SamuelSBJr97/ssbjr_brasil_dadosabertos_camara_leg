@@ -111246,12 +111246,12 @@ default:s=7
 break}break
 case 8:j=n.b
 s=11
-return A.F(n.a.CD(40,n.d,j),$async$k8)
+return A.F(n.a.CD(1000,n.d,j),$async$k8)
 case 11:n.w=b
 s=7
 break
 case 9:s=12
-return A.F(n.a.CF(m,m,35),$async$k8)
+return A.F(n.a.CF(m,m,1000),$async$k8)
 case 12:j=b
 n.x=j
 i=n.d
@@ -111261,7 +111261,7 @@ j=A.a6(j,j.$ti.j("C.E"))
 n.x=j}s=7
 break
 case 10:s=13
-return A.F(n.a.CI(m,m,35),$async$k8)
+return A.F(n.a.CI(m,m,1000),$async$k8)
 case 13:j=b
 n.y=j
 i=n.d
